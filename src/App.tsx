@@ -3,8 +3,10 @@ import { TezosToolkit, MichelsonMap } from '@taquito/taquito';
 import './App.css';
 import ConnectButton from './components/ConnectWallet';
 import DisconnectButton from './components/DisconnectWallet';
-import OwnedQuetzals from './components/OwnedQuetzals'; // You will need to create this component
-import MintQuetzal from './components/MintQuetzal'; // You will need to create this component
+import OwnedQuetzals from './components/OwnedQuetzals';
+import MintQuetzal from './components/MintQuetzal';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
 enum BeaconConnection {
   NONE = "",
@@ -75,9 +77,26 @@ const App = () => {
     );
   } else if (userAddress && !isNaN(userBalance)) {
     return (
-      <div className="main-box">
-        <h1>Quetzal dMeta NFT Collection</h1>
-        <div id="tabs">
+      <div>
+        <div className="dark-theme">
+          <Box
+            className="center"
+            component="img"
+            sx={{
+              height: 300,
+              width: 300,
+              maxHeight: { xs: 300, md: 300 },
+              maxWidth: { xs: 300, md: 300 },
+              paddingTop: 2,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            alt="Dynamic Metadata"
+            src="./dmeta_quetzals_logo.png"
+          />
+        </div>
+        <div className="main-box">
+{/*        <div id="tabs">
           <div
             id="ownedQuetzals"
             className={activeTab === 'ownedQuetzals' ? 'active' : ''}
@@ -92,54 +111,90 @@ const App = () => {
           >
             Mint Quetzal
           </div>
-        </div>
-        <div id="content">
-          {activeTab === 'ownedQuetzals' && <OwnedQuetzals Tezos={Tezos} userAddress={userAddress} />}
-          {activeTab === 'mintQuetzal' && <MintQuetzal Tezos={Tezos} userAddress={userAddress} />}
-        </div>
-        <DisconnectButton
-          wallet={wallet}
-          setPublicToken={setPublicToken}
-          setUserAddress={setUserAddress}
-          setUserBalance={setUserBalance}
-          setWallet={setWallet}
-          setTezos={setTezos}
-          setBeaconConnection={setBeaconConnection}
-        />
-        <div id="footer">
+        </div>*/}
+          <div id="content">
+            <div>
+              <p>Hello!</p>
+              <p>
+                This is a basic example Tezos dApp built using the Dynamic Metadata standard and infrastructure by Tezos Commons. It's a starting
+                point for you to hack on and build your own dMeta dApp for Tezos.
+                <br />
+              </p>
+            </div>
+            <Box sx={{ flexGrow: 1 }}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={12} md={6} sx={{ paddingBottom: 1 }}>
+                  <MintQuetzal Tezos={Tezos} userAddress={userAddress} />
+                </Grid>
+                <Grid item xs={12} sm={12} md={12}>
+                  <OwnedQuetzals Tezos={Tezos} userAddress={userAddress} />
+                </Grid>
+              </Grid>
+            </Box>
+  {/*          {activeTab === 'ownedQuetzals' && <OwnedQuetzals Tezos={Tezos} userAddress={userAddress} />}
+            {activeTab === 'mintQuetzal' && <MintQuetzal Tezos={Tezos} userAddress={userAddress} />}*/}
+          </div>
+          <DisconnectButton
+            wallet={wallet}
+            setPublicToken={setPublicToken}
+            setUserAddress={setUserAddress}
+            setUserBalance={setUserBalance}
+            setWallet={setWallet}
+            setTezos={setTezos}
+            setBeaconConnection={setBeaconConnection}
+          />
+          <div id="footer">
+          </div>
         </div>
       </div>
     );
   } else if (!publicToken && !userAddress && !userBalance) {
     return (
-      <div className="main-box">
-        <div className="title">
-          <h1>Dynamic Metadata Example</h1>
-        </div>
-        <div id="dialog">
-          <header>Welcome to Quetzals!</header>
-          <div id="content">
-            <p>Hello!</p>
-            <p>
-              This is a basic example Tezos dApp built using the Dynamic Metadata standard and infrastructure by Tezos Commons. It's a starting
-              point for you to hack on and build your own dMeta dApp for Tezos.
-              <br />
-            </p>
-          </div>
-          <ConnectButton
-            Tezos={Tezos}
-            setContract={setContract}
-            setPublicToken={setPublicToken}
-            setWallet={setWallet}
-            setUserAddress={setUserAddress}
-            setUserBalance={setUserBalance}
-            setStorage={setStorage}
-            contractAddress={contractAddress}
-            setBeaconConnection={setBeaconConnection}
-            wallet={wallet}
+      <div>
+        <div className="dark-theme">
+          <Box
+            className="center"
+            component="img"
+            sx={{
+              height: 300,
+              width: 300,
+              maxHeight: { xs: 300, md: 300 },
+              maxWidth: { xs: 300, md: 300 },
+              paddingTop: 2,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            alt="Dynamic Metadata"
+            src="./dmeta_quetzals_logo.png"
           />
         </div>
-        <div id="footer">
+        <div className="main-box center">
+          <div>
+            <div id="content">
+              <div className="center">
+                <h1>DMeta Example dApp</h1>
+              </div>
+              <p>
+                This is a basic example Tezos dApp built using the Dynamic Metadata standard and infrastructure by Tezos Commons. It's a starting
+                point for you to hack on and build your own dMeta dApp for Tezos.
+                <br />
+              </p>
+            </div>
+            <ConnectButton
+              Tezos={Tezos}
+              setContract={setContract}
+              setPublicToken={setPublicToken}
+              setWallet={setWallet}
+              setUserAddress={setUserAddress}
+              setUserBalance={setUserBalance}
+              setStorage={setStorage}
+              contractAddress={contractAddress}
+              setBeaconConnection={setBeaconConnection}
+              wallet={wallet}
+            />
+          </div>
+          <div id="footer">
+          </div>
         </div>
       </div>
     );

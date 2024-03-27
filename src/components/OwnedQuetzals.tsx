@@ -8,6 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import MintQuetzal from './MintQuetzal';
 
 const getOwnedTokenIds = async (userAddress) => {
   const url = `https://api.tzkt.io/v1/tokens/balances?account=${userAddress}&token.contract=KT1R1zAm8M2xEmiH12RiqtsbUFwCgYcE6wCN`;
@@ -123,8 +124,11 @@ const OwnedQuetzals = ({ Tezos, userAddress }) => {
 
   const OwnedQuetzalsMaterialUI = ({ quetzals, renameInput, setRenameInput, handleRename, handleFeed }) => {
     return (
-      <Box sx={{ flexGrow: 1, padding: 2 }}>
+      <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
+          <Grid item xs={12} sm={12} md={12}>
+          <h1>My Quetzals</h1>
+          </Grid>
           {quetzals.map((quetzal) => (
             <Grid item xs={12} sm={6} md={3} key={quetzal.ID}>
               <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
