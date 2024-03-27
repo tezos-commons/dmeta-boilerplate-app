@@ -7,6 +7,7 @@ import OwnedQuetzals from './components/OwnedQuetzals';
 import MintQuetzal from './components/MintQuetzal';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
 
 enum BeaconConnection {
   NONE = "",
@@ -121,6 +122,9 @@ const App = () => {
                 <br />
                 <br />
                 Over time, your feathery friends' health (hearts) will decrease unless you keep them well fed! Please take good care of your Quetzal...or else.
+                <br />
+                <br />
+                Boilerplate repo and dMeta docs <Link href="https://github.com/tezos-commons/dmeta-boilerplate-app">here</Link>.
               </p>
             </div>
             <Box sx={{ flexGrow: 1 }}>
@@ -180,6 +184,11 @@ const App = () => {
                 This is a basic example Tezos dApp built using the Dynamic Metadata standard and infrastructure by Tezos Commons. It's a starting
                 point for you to hack on and build your own dMeta dApp for Tezos.
                 <br />
+                <br />
+                Over time, your feathery friends' health (hearts) will decrease unless you keep them well fed! Please take good care of your Quetzal...or else.
+                <br />
+                <br />
+                Boilerplate repo and dMeta docs <Link href="https://github.com/tezos-commons/dmeta-boilerplate-app">here</Link>.
               </p>
             </div>
             <ConnectButton
