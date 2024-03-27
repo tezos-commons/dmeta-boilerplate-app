@@ -1,0 +1,147 @@
+{
+	"formatVersion": 2,
+	"appVersion": "0.63.3",
+	"files": [
+		{
+			"noteId": "o3hqavJCen8K",
+			"notePath": [
+				"o3hqavJCen8K"
+			],
+			"isClone": false,
+			"title": "Quetzals",
+			"notePosition": 40,
+			"prefix": null,
+			"isExpanded": true,
+			"type": "text",
+			"mime": "text/html",
+			"format": "markdown",
+			"dataFileName": "Quetzals.md",
+			"dirFileName": "Quetzals",
+			"noImport": false,
+			"attributes": [],
+			"attachments": [
+				{
+					"attachmentId": "Vln3pspZjV4T",
+					"title": "0.png",
+					"role": "image",
+					"mime": "image/jpg",
+					"position": 10,
+					"dataFileName": "Quetzals_0.png"
+				}
+			],
+			"children": [
+				{
+					"noteId": "yo1xCuistNp6",
+					"notePath": [
+						"o3hqavJCen8K",
+						"yo1xCuistNp6"
+					],
+					"isClone": false,
+					"title": "Files",
+					"notePosition": 10,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"format": "markdown",
+					"dataFileName": "Files.md",
+					"noImport": false,
+					"attributes": [],
+					"attachments": [
+						{
+							"attachmentId": "4SghCXyiwmIo",
+							"title": "reference.png",
+							"role": "image",
+							"mime": "image/jpg",
+							"position": 10,
+							"dataFileName": "Files_reference.png"
+						},
+						{
+							"attachmentId": "6IEQXWpM36Qc",
+							"title": "reference.png",
+							"role": "image",
+							"mime": "image/jpg",
+							"position": 10,
+							"dataFileName": "1_Files_reference.png"
+						}
+					]
+				},
+				{
+					"noteId": "ErgAmAlboNIi",
+					"notePath": [
+						"o3hqavJCen8K",
+						"ErgAmAlboNIi"
+					],
+					"isClone": false,
+					"title": "Wallet Implementation Guide",
+					"notePosition": 20,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"format": "markdown",
+					"dataFileName": "Wallet Implementation Guide.md",
+					"noImport": false,
+					"attributes": [],
+					"attachments": [
+						{
+							"attachmentId": "eMeWJt13NHX2",
+							"title": "Screenshot from 2024-03-24 02-50-30.png",
+							"role": "image",
+							"mime": "image/jpg",
+							"position": 10,
+							"dataFileName": "Wallet Implementation Guide_Sc.jpg"
+						}
+					]
+				},
+				{
+					"noteId": "5SNw3duSxsOM",
+					"notePath": [
+						"o3hqavJCen8K",
+						"5SNw3duSxsOM"
+					],
+					"isClone": false,
+					"title": "Legacy Metadata",
+					"notePosition": 30,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"format": "markdown",
+					"dataFileName": "Legacy Metadata.md",
+					"noImport": false,
+					"attributes": [],
+					"attachments": [
+						{
+							"attachmentId": "HwVAn2J2Z7V5",
+							"title": "image.jpg",
+							"role": "image",
+							"mime": "image/jpg",
+							"position": 10,
+							"dataFileName": "Legacy Metadata_image.jpg"
+						}
+					]
+				},
+				{
+					"noteId": "lcrRDi4Ybtg5",
+					"notePath": [
+						"o3hqavJCen8K",
+						"lcrRDi4Ybtg5"
+					],
+					"isClone": false,
+					"title": "Example Code:  Live Updates",
+					"notePosition": 40,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"format": "markdown",
+					"dataFileName": "Example Code  Live Updates.md",
+					"noImport": false,
+					"attributes": [],
+					"attachments": []
+				}
+			]
+		}
+	]
+}
