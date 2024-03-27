@@ -24,4 +24,4 @@ For some backwards compatibility Quetzals include old-school metadata, the Metad
 
 Applications that do not implement dmeta will see the token name “Quetzal” instead of the custom Name set, and this asset picture:
 
-![https://ipfs.io/ipfs/QmbbhYmRpyqv9c19eorgsQzVGzXBou7i9Nn5sozd5AjQge](Legacy Metadata_image.jpg)
+![https://ipfs.io/ipfs/QmbbhYmRpyqv9c19eorgsQzVGzXBou7i9Nn5sozd5AjQge](Legacy_Metadata_image.jpg)

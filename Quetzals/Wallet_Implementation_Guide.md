@@ -163,7 +163,7 @@ Subscriptions
 
 All Results generated and served via the dmeta proxy have a subscription id, when making a standard request this can be found in a HTTP Header:
 
-![](Wallet Implementation Guide_Sc.jpg)
+![](Wallet_Implementation_Guide_Sc.jpg)
 
 If making a exec Request the Subscription ID can be found in the JSON, see above.
 

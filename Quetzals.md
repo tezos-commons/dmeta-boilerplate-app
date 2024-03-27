@@ -43,6 +43,7 @@ Fees will be forwarded to the Ecosystem DAO - KT1VA5SvdE9AU41GY4u7ik5WkTi1pMU4Pi
 
 For more info, check out:
 
-**WALLET IMPLEMENTATION GUIDE:** [**here**](./Quetzals/Wallet Implementation Guide.md) 
+**WALLET IMPLEMENTATION GUIDE:** [**here**](./Quetzals/Wallet_Implementation_Guide.md)
+**SUBSCRIPTION EXAMPLE CODE:** [**here**](./Quetzals/Example_Code_Live_Updates.md) 
 **FILES:** [**here**](./Quetzals/Files.md) 
-**LEGACY METADATA:** [**here**](./Quetzals/Legacy Metadata.md) 
+**LEGACY METADATA:** [**here**](./Quetzals/Legacy_Metadata.md)
