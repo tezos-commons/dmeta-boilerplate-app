@@ -114,11 +114,13 @@ const App = () => {
         </div>*/}
           <div id="content">
             <div>
-              <p>Hello!</p>
+              <h3>Hello!</h3>
               <p>
                 This is a basic example Tezos dApp built using the Dynamic Metadata standard and infrastructure by Tezos Commons. It's a starting
                 point for you to hack on and build your own dMeta dApp for Tezos.
                 <br />
+                <br />
+                Over time, your feathery friends' health (hearts) will decrease unless you keep them well fed! Please take good care of your Quetzal...or else.
               </p>
             </div>
             <Box sx={{ flexGrow: 1 }}>

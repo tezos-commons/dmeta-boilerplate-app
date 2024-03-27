@@ -1,6 +1,6 @@
 # Quetzals
 
-**DOCS:** [**here**](./Quetzals.md) 
+**DYNAMIC METADATA DOCS:** [**here**](./Quetzals.md) 
 
 ## How to run
 
