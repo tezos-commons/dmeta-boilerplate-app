@@ -50,51 +50,21 @@ const OwnedQuetzals = ({ Tezos, userAddress }) => {
 
       const quetzalsMetadata = await Promise.all(metadata);
       setQuetzals(quetzalsMetadata);
+      return quetzalsMetadata;
 
-      // subscribe to live updates
-      // if (quetzalsMetadata.subscriptionId) {
-      //   listenForUpdates(quetzalsMetadata.subscriptionId, tokenIds);
-      // }
     } catch (error) {
       console.error("Failed to fetch Quetzals metadata:", error);
       setQuetzals([]); // Handle the error appropriately in your application context
+      return [];
     }
   };
-
-  // const listenForUpdates = async (subscriptionId, tokenIds) => {
-  //   const wsUrl = 'wss://dmeta.mantodev.com/subscribe';
-  //   const socket = new WebSocket(wsUrl);
-
-  //   socket.onopen = () => {
-  //       const message = {
-  //           action: 'subscribe',
-  //           subscriptions: [subscriptionId],
-  //           id: 'Quetzals' // This should be a unique ID for this client
-  //       };
-  //       socket.send(JSON.stringify(message));
-  //   };
-
-  //   socket.onmessage = async (event) => {
-  //       const data = JSON.parse(event.data);
-  //       if (data.subscription_update && data.subscription_update === subscriptionId) {
-  //           // Fetch the updated image using exec call again
-  //           const updatedData = await fetchOwnedQuetzals(tokenIds);
-  //           if (!updatedData) {
-  //               console.log('Failed to update the image.');
-  //           }
-  //       }
-  //   };
-
-  //   socket.onerror = (error) => {
-  //       console.log('WebSocket Error:', error);
-  //   };
-  // }
 
   useEffect(() => {
     if (userAddress) {
       getOwnedTokenIds(userAddress).then(tokenIds => {
         if (tokenIds.length > 0) {
-          fetchOwnedQuetzals(tokenIds);
+          let quetzals = fetchOwnedQuetzals(tokenIds);
+          listenForUpdates(quetzals.subscriptionId, tokenIds);
         } else {
           console.log('No token IDs found for this address.');
           setQuetzals([]); // Clear or set a default state as needed
@@ -161,6 +131,7 @@ const OwnedQuetzals = ({ Tezos, userAddress }) => {
           <Grid item xs={12} sm={12} md={12}>
           <h1>My Quetzals</h1>
           </Grid>
+          {quetzals.length == 0 && <p style={{paddingLeft: '16px'}}>You don't own any Quetzals!</p>}
           {quetzals.map((quetzal) => (
             <Grid item xs={12} sm={6} md={3} key={quetzal.ID}>
               <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
