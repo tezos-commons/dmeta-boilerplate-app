@@ -64,7 +64,6 @@ const OwnedQuetzals = ({ Tezos, userAddress }) => {
       getOwnedTokenIds(userAddress).then(tokenIds => {
         if (tokenIds.length > 0) {
           let quetzals = fetchOwnedQuetzals(tokenIds);
-          listenForUpdates(quetzals.subscriptionId, tokenIds);
         } else {
           console.log('No token IDs found for this address.');
           setQuetzals([]); // Clear or set a default state as needed
