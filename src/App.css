@@ -6,15 +6,24 @@ body,
   margin: 0px;
   padding: 0px;
   font-size: 1rem;
+  font-family: 'Roboto', sans-serif; /* Assuming you're using Material-UI's default font */
 }
 
 #root {
   display: grid;
 }
 
-.main-box {
+/*.main-box {
   margin: auto;
   width: 70%;
+}*/
+
+/* Responsive main container */
+.main-box {
+  margin: 20px auto;
+  padding: 20px;
+  width: 70%; /* Make the main box take the full width */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow for depth */
 }
 
 .title {
@@ -48,6 +57,12 @@ header {
   display: flex;
   flex-direction: column;
   padding: 20px;
+}
+
+/* Text adjustments */
+#content p {
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 #footer {
@@ -247,4 +262,52 @@ input[type="number"] {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+/* Responsive image */
+.center img {
+  width: 100%; /* Make image responsive */
+  max-width: 300px; /* Limit maximum size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Adjust margins and padding for smaller screens */
+@media (max-width: 1000px) {
+  .main-box {
+    width: 90%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  header, .button, #dialog, #footer {
+    padding: 10px;
+  }
+
+  /* Smaller font size for headers on very small screens */
+  h1, header {
+    font-size: 1.2rem;
+  }
+}
+
+/* Additional responsive adjustments */
+/* Ensures text fields, buttons, and other elements look good on small screens */
+@media (max-width: 400px) {
+  #dialog, .button {
+    padding: 5px;
+  }
+
+  .main-box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  h1, header {
+    font-size: 1rem;
+  }
 }
