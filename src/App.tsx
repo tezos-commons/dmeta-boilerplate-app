@@ -5,7 +5,6 @@ import ConnectButton from './components/ConnectWallet';
 import DisconnectButton from './components/DisconnectWallet';
 import OwnedQuetzals from './components/OwnedQuetzals';
 import MintQuetzal from './components/MintQuetzal';
-import RenderDocs from './components/RenderDocs';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
