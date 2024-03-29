@@ -154,8 +154,8 @@ const OwnedQuetzals = ({ Tezos, userAddress }) => {
     }));
   }, []);
 
-  const OwnedQuetzalsMaterialUI = ({ quetzals, renameInput, setRenameInput, handleRename, handleFeed }) => {
-    return (
+  return (
+    <div>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12} md={12}>
@@ -184,9 +184,9 @@ const OwnedQuetzals = ({ Tezos, userAddress }) => {
                     onChange={(e) => handleInputChange(quetzal.ID, e.target.value)}
                     margin="normal"
                   />
-                    <Button variant="outlined" onClick={() => handleRename(quetzal.ID, renameInput[quetzal.ID])}>
-                      Rename
-                    </Button>
+                  <Button variant="outlined" onClick={() => handleRename(quetzal.ID, renameInput[quetzal.ID])}>
+                    Rename
+                  </Button>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
                     <Button variant="contained" onClick={() => handleFeed(quetzal.ID)}>
                       Feed
@@ -198,12 +198,6 @@ const OwnedQuetzals = ({ Tezos, userAddress }) => {
           ))}
         </Grid>
       </Box>
-    );
-  };
-
-  return (
-    <div>
-      {<OwnedQuetzalsMaterialUI quetzals={quetzals} renameInput={renameInput} setRenameInput={setRenameInput} handleRename={handleRename} handleFeed={handleFeed} />}
     </div>
   );
 };
