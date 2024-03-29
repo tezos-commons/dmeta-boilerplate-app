@@ -50,6 +50,22 @@ const OwnedQuetzals = ({ Tezos, userAddress }) => {
 
       const quetzalsMetadata = await Promise.all(metadata);
       setQuetzals(quetzalsMetadata);
+
+      // subscribe to live updates
+      quetzalsMetadata.forEach(async (quetzal) => {
+        const response = await fetch(`https://${proxy}/exec/${network}/${contractAddress}/tokenMetadata/${quetzal.ID}`);
+        if (response.ok && response.headers.get('content-type')?.includes('application/json')) {
+          let execMetadataResponse = response.json().then(data => ({ data }));
+          let execMetadata = await execMetadataResponse;
+
+          execMetadata.data.SubscriptionId && listenForUpdates(execMetadata.data.SubscriptionId, quetzal.ID, tokenIds);
+        } else {
+          // Attempt to read the response text to see the error message
+          const errorMessage = await response.text();
+          throw new Error(`Failed to fetch exec metadata for tokenId ${tokenId}: ${errorMessage}`);
+        }
+      });
+
       return quetzalsMetadata;
 
     } catch (error) {
@@ -59,11 +75,40 @@ const OwnedQuetzals = ({ Tezos, userAddress }) => {
     }
   };
 
+  const listenForUpdates = (subscriptionId, tokenId, tokenIds) => {
+    const wsUrl = 'wss://dmeta.mantodev.com/subscribe';
+    const socket = new WebSocket(wsUrl);
+
+    socket.onopen = () => {
+      const message = {
+        action: 'subscribe',
+        subscriptions: [subscriptionId],
+        id: `Quetzals-#{userAddress}-#{tokenId}` // Unique ID for this client
+      };
+      socket.send(JSON.stringify(message));
+    };
+
+    socket.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (data.subscription_update && data.subscription_update === subscriptionId) {
+        // If the server indicates a change, refetch the Quetzals data
+        fetchOwnedQuetzals(tokenIds);
+      }
+    };
+
+    socket.onerror = (error) => {
+      console.error('WebSocket Error:', error);
+    };
+
+    // Consider storing the `socket` reference in state or context to manage its lifecycle
+    // This would allow you to cleanly close the socket when the component unmounts
+  };
+
   useEffect(() => {
     if (userAddress) {
       getOwnedTokenIds(userAddress).then(tokenIds => {
         if (tokenIds.length > 0) {
-          let quetzals = fetchOwnedQuetzals(tokenIds);
+          fetchOwnedQuetzals(tokenIds);
         } else {
           console.log('No token IDs found for this address.');
           setQuetzals([]); // Clear or set a default state as needed
