@@ -35,7 +35,7 @@ const OwnedQuetzals = ({ Tezos, userAddress }) => {
 
   const fetchOwnedQuetzals = async (tokenIds) => {
     try {
-      const metadataPromises = tokenIds.map(async (tokenId) => {
+      const metadata = tokenIds.map(async (tokenId) => {
         const response = await fetch(`https://${proxy}/${network}/${contractAddress}/tokenMetadata/${tokenId}`);
         
         // Check if the response is OK and the content type is JSON
@@ -48,15 +48,47 @@ const OwnedQuetzals = ({ Tezos, userAddress }) => {
         }
       });
 
-      const quetzalsMetadata = await Promise.all(metadataPromises);
+      const quetzalsMetadata = await Promise.all(metadata);
       setQuetzals(quetzalsMetadata);
+
+      // subscribe to live updates
+      // if (quetzalsMetadata.subscriptionId) {
+      //   listenForUpdates(quetzalsMetadata.subscriptionId, tokenIds);
+      // }
     } catch (error) {
       console.error("Failed to fetch Quetzals metadata:", error);
       setQuetzals([]); // Handle the error appropriately in your application context
     }
   };
 
+  // const listenForUpdates = async (subscriptionId, tokenIds) => {
+  //   const wsUrl = 'wss://dmeta.mantodev.com/subscribe';
+  //   const socket = new WebSocket(wsUrl);
 
+  //   socket.onopen = () => {
+  //       const message = {
+  //           action: 'subscribe',
+  //           subscriptions: [subscriptionId],
+  //           id: 'Quetzals' // This should be a unique ID for this client
+  //       };
+  //       socket.send(JSON.stringify(message));
+  //   };
+
+  //   socket.onmessage = async (event) => {
+  //       const data = JSON.parse(event.data);
+  //       if (data.subscription_update && data.subscription_update === subscriptionId) {
+  //           // Fetch the updated image using exec call again
+  //           const updatedData = await fetchOwnedQuetzals(tokenIds);
+  //           if (!updatedData) {
+  //               console.log('Failed to update the image.');
+  //           }
+  //       }
+  //   };
+
+  //   socket.onerror = (error) => {
+  //       console.log('WebSocket Error:', error);
+  //   };
+  // }
 
   useEffect(() => {
     if (userAddress) {
@@ -81,7 +113,7 @@ const OwnedQuetzals = ({ Tezos, userAddress }) => {
     try {
       const contractAddress = 'KT1R1zAm8M2xEmiH12RiqtsbUFwCgYcE6wCN';
       const contract = await Tezos.wallet.at(contractAddress);
-      const op = await contract.methods.rename(newName, tokenId).send({
+      const op = await contract.methods.rename(tokenId, newName).send({
         amount: 0.05, // The rename function requires 0.05 tez
       });
 
