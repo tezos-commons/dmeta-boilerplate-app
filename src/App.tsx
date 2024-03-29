@@ -5,6 +5,7 @@ import ConnectButton from './components/ConnectWallet';
 import DisconnectButton from './components/DisconnectWallet';
 import OwnedQuetzals from './components/OwnedQuetzals';
 import MintQuetzal from './components/MintQuetzal';
+import RenderDocs from './components/RenderDocs';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
@@ -97,22 +98,6 @@ const App = () => {
           />
         </div>
         <div className="main-box">
-{/*        <div id="tabs">
-          <div
-            id="ownedQuetzals"
-            className={activeTab === 'ownedQuetzals' ? 'active' : ''}
-            onClick={() => setActiveTab('ownedQuetzals')}
-          >
-            My Quetzals
-          </div>
-          <div
-            id="mintQuetzal"
-            className={activeTab === 'mintQuetzal' ? 'active' : ''}
-            onClick={() => setActiveTab('mintQuetzal')}
-          >
-            Mint Quetzal
-          </div>
-        </div>*/}
           <div id="content">
             <div>
               <h3>Hello!</h3>
@@ -137,8 +122,6 @@ const App = () => {
                 </Grid>
               </Grid>
             </Box>
-  {/*          {activeTab === 'ownedQuetzals' && <OwnedQuetzals Tezos={Tezos} userAddress={userAddress} />}
-            {activeTab === 'mintQuetzal' && <MintQuetzal Tezos={Tezos} userAddress={userAddress} />}*/}
           </div>
           <DisconnectButton
             wallet={wallet}

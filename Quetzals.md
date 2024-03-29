@@ -35,7 +35,7 @@ Beyond the standard FA2 **Entrypoints** the Quetzals Contract has these addition
 | Name | Arguments | Fee | Comment |
 | mint | name: string | 0.1 tez | Mints a new NFT on the sender address |
 | feed | token\_id: int | 0.05 tez | Restores Health back to maximum, unless its dead |
-| rename | name: string, token\_id: int | 0.05 tez | Renames your Quetzal |
+| rename | token\_id: int, name: string | 0.05 tez | Renames your Quetzal |
 
 \*You can feed quetzals that you don't own, btw.
 
