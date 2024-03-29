@@ -34,6 +34,7 @@ const MintQuetzal: React.FC<MintQuetzalProps> = ({ Tezos, userAddress }) => {
 
       await op.confirmation();
       alert('Minting successful!');
+      window.location.reload(); //improve this later, refresh owned Quetzals
     } catch (error) {
       console.error('Minting failed:', error);
       alert('Minting failed. Please try again.');
