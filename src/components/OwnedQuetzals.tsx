@@ -62,7 +62,7 @@ const OwnedQuetzals = ({ Tezos, userAddress }) => {
         } else {
           // Attempt to read the response text to see the error message
           const errorMessage = await response.text();
-          throw new Error(`Failed to fetch exec metadata for tokenId ${tokenId}: ${errorMessage}`);
+          throw new Error(`Failed to fetch exec metadata for tokenId ${quetzal.ID}: ${errorMessage}`);
         }
       });
 
